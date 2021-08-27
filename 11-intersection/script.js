@@ -8,7 +8,18 @@
 */
 
 function intersection(arr1, arr2) {
-    // Напишите код здесь
+    let hash = {};
+    let result = [];
+    for (let i = 0; i < arr1.length; i++) {
+        hash[arr1[i]] = 1;
+    }
+    for (i = 0; i < arr2.length; i++) {
+        if (hash.hasOwnProperty(arr2[i]) ===  true && hash[arr2[i]] === 1) {
+            result.push(arr2[i]);
+            hash[arr2[i]] = 2;
+        }
+    }
+    return result;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

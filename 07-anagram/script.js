@@ -9,10 +9,25 @@
 */
 
 function anagram(str1, str2) {
-    // Напишите код здесь
+    str1 = '' || str1.toLowerCase();
+    str2 = '' || str2.toLowerCase();
+    let hash = {};
+    if (str1 === str2) { // если строки равны - возвращается ложь
+        return false;
+    }
+    for (let i = 0; i < str1.length; i++) {
+        hash[str1[i]] = true;
+    }
+    for (i = 0; i < str1.length; i++) {
+        if (hash.hasOwnProperty(str2[i]) ===  false) {
+            return false;
+        }
+    }
+    return true; // если все буквы есть возвращаем true
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
 console.log(anagram('finder', 'Friend')); // true
 console.log(anagram('hello', 'bye')); // false
+console.log(anagram("up", "UP"));

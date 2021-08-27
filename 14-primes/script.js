@@ -7,7 +7,28 @@
 */
 
 function primes(num) {
-    // Напишите код здесь
+    num = num || 0;
+    result = [];
+    if (num <= 1) {
+        return [];
+    }
+    if (num >= 2) {
+        result.push(2);
+    }
+    let isPrime = true;
+    for (let i = 3; i <= num; i++) {
+        isPrime = true;
+        for (let j = 2; j <= Math.floor(i / 2); j++) {
+            if (i % j == 0)  {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            result.push(i);
+        }
+    }
+    return result;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

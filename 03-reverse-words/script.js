@@ -9,7 +9,13 @@
 */
 
 function reverseWords(str) {
-    // Напишите код здесь
+    let arrayOfWords = str.split(/ {1,}/);
+    let newStr = '';
+    for (let i = 0; i < arrayOfWords.length; i++) {
+        (i !== 0) ? newStr += ' ' : newStr += '';
+        newStr += arrayOfWords[arrayOfWords.length - i - 1];
+    }
+    return newStr;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:

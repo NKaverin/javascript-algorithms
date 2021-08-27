@@ -8,9 +8,17 @@
 */
 
 function uniq(arr) {
-    // Напишите код здесь
+    arr = arr || [];
+    let hash = {};
+    let result = [];
+    arr.forEach(element => {
+        if (hash.hasOwnProperty(element) ===  false) {
+            result.push(element);
+            hash[element] = true;
+        }
+    });
+    return result;
 }
-
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
 console.log(uniq([1, 2, 5, 4, 2])); // [1, 2, 5, 4]

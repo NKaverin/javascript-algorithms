@@ -11,9 +11,28 @@
 */
 
 function fizzBuzz(num) {
-    // Напишите код здесь
+    num = num || 0;
+    let threeCount = 0;
+    let fiveCount = 0;
+    for (let i = 1; i <= num; i++) {
+        threeCount += 1;        
+        fiveCount += 1;
+        if ((threeCount === 3) && (fiveCount === 5)) {
+            console.log('fizzbuzz');
+            threeCount = 0;
+            fiveCount = 0;
+        } else if (threeCount === 3) {
+            console.log('fizz');
+            threeCount = 0;
+        } else if (fiveCount === 5) {
+            console.log('buzz');
+            fiveCount = 0;
+        } else {
+            console.log(i);
+        }
+    }
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
 
-console.log(fizzBuzz(15));
+console.log(fizzBuzz(30));

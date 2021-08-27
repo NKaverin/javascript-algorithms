@@ -14,7 +14,24 @@
 */
 
 function palindrome(str) {
-    // Напишите код здесь
+    str = str || "";
+    // подготовим строку
+    let newstr = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 122 // английский алфавит
+        || str.charCodeAt(i) >= 1040 && str.charCodeAt(i) <= 1103 // русский
+        || str.charCodeAt(i) == 1025 || str.charCodeAt(i) == 1105) { //буква ё
+            newstr = newstr + str[i];
+        } 
+    }
+    newstr =  newstr.toLowerCase();
+    lngthOfNewstr = newstr.length;
+    for (let i = 0; i < Math.floor(newstr.length/2); i++) {
+        if (newstr[i] !== newstr[lngthOfNewstr - i - 1]) {
+            return false;
+        }
+    }
+    return true; //пустая строка это палиндром
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
@@ -22,6 +39,7 @@ function palindrome(str) {
 console.log(palindrome('топот')); // должно быть true
 console.log(palindrome('Saippuakivikauppias')); // true
 console.log(palindrome('привет')); // false
+console.log(palindrome('О, лета тело!')); // true
 
 /*
  * Бонус. Задача для любознательных. Пусть функция принимает на вход любую строку,

@@ -7,7 +7,17 @@
 */
 
 function capitalize(str) {
-    // Напишите код здесь
+    str = str || '';
+    let arrayOfWords = str.split(/ {1,}/);
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        if (i === 0 || str[i - 1].match(/[^а-яА-Яa-zA-Zеё]{1}/)) { //не знаю работает ли матч быстро
+            result+= str[i].toUpperCase();
+        } else {
+            result+= str[i];
+        }
+    }
+    return result;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
